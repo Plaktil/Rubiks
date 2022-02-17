@@ -1,29 +1,33 @@
 '''
 Rubik's cube
 
+[ ] Implement Block class
+[ ] Implement Rotations
+[ ] Read user input from command line
+[ ] Find a module for visual representation
+[ ] 
+
 '''
 
 # Import modules
 import numpy as np
 
 # Create cube class	
-class cube:
+class Cube:
 	def __init__(self,size):
 		
 # Create a cube array containing layers i	
 		cube=[]
 		for i in range(size):
-			layer=[]
 			
 # Create a layer array containing rows j			
 			for j in range(size):
-				row=[]
 				
 # Create a row array containing blocks k
 # Block is an array containing the position of the block and a vector containing parameters 
 # representing the orientation of the colored face according to the coordinate and an encoding of its color as its norm
 				for k in range(size):
-					atom=[[i,j,k]]
+					block=[[i - ((size-1)/2), j - ((size-1)/2), k - ((size-1)/2)]]
 					colors=[0,0,0]
 					if k==0:
 						colors=[-5,0,0]
@@ -37,10 +41,8 @@ class cube:
 						colors[2]=3
 					if i==size-1:
 						colors[2]=-4
-					atom.append(colors)
-					row.append(atom)
-				layer.append(row)
-			cube.append(layer)
+					block.append(colors)
+					cube.append(block)
 			
 			self.array=np.array(cube)
 	
@@ -59,6 +61,12 @@ class cube:
 	[0,-1,0],
 	[1,0,0],
 	[0,0,1]])
+
+
+class Block:
+	def init(self, x, y ,z):
+		self.pos = [x, y, z]
+		self.colors = [0, 0, 0]
 				
-a=cube(3)
+a=Cube(3)
 print(a.array)
