@@ -14,7 +14,27 @@ import numpy as np
 
 # Create cube class	
 class Cube:
+	# Rotation matrixes
+	_yrot=np.array([
+	[0, 0, 1],
+	[0, 1, 0],
+	[-1, 0, 0]])
+
+	_xrot=np.array([
+	[1, 0, 0],
+	[0, 0, -1],
+	[0, 1, 0]])
+
+	_zrot=np.array([
+	[0, -1, 0],
+	[1, 0, 0],
+	[0, 0, 1]])
+
 	def __init__(self,size):
+
+# Defines the coordinate value of each faces according to "size"
+		self.MIN = -((size - 1) / 2)
+		self.MAX = ((size - 1) / 2)
 		
 # Create a cube array containing layers i	
 		cube=[]
@@ -31,28 +51,20 @@ class Cube:
 					cube.append(b)
 			
 			self.cube = cube
-	
-	# Rotation matrixes
-	yrot=np.array([
-	[0, 0, 1],
-	[0, 1, 0],
-	[-1, 0, 0]])
 
-	xrot=np.array([
-	[1, 0, 0],
-	[0, 0, -1],
-	[0, 1, 0]])
-
-	zrot=np.array([
-	[0, -1, 0],
-	[1, 0, 0],
-	[0, 0, 1]])
+	def left(self):
+		for b in self.cube:
+			if b.x == self.MIN:
+				print(self._xrot * b.pos.transpose())
 
 
 class Block():
 	def __init__(self, x, y ,z, size):
-		self.pos = [x, y, z]
-		self.colors = [0, 0, 0]
+		self.pos = np.array([x, y, z])
+		self.colors = np.array([0, 0, 0])
+		self.x = self.pos[0]
+		self.y = self.pos[1]
+		self.z = self.pos[2]
 
 		if x==0:
 			self.colors[0] = -5
@@ -70,6 +82,12 @@ class Block():
 	def draw():
 		pass
 				
+		
+# Test section
 a=Cube(3)
+for b in a.cube: 
+	print(b.pos, b.colors)
+
+a.left()
 for b in a.cube: 
 	print(b.pos, b.colors)
