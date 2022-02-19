@@ -7,7 +7,7 @@ def main():
 
     y = np.array([-1, 1, 1])
 
-    z = y * x
+    z = np.matmul(y, x)
     print(z)
 
 main()

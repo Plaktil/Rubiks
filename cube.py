@@ -55,7 +55,7 @@ class Cube:
 	def left(self):
 		for b in self.cube:
 			if b.x == self.MIN:
-				print(self._xrot * b.pos.transpose())
+				b.pos = np.matmul(b.pos, self._xrot)
 
 
 class Block():
