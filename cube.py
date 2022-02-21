@@ -2,17 +2,16 @@
 Rubik's cube
 
 [X] Implement Block class
-[ ] Implement Rotations
+[X] Implement Rotations (3x3 only for now)
+[ ] Implement notation/rotations for all sizes
 [ ] Read user input from command line
 [ ] Find a module for visual representation
 [ ] 
 
 '''
-
-# Import modules
 import numpy as np
 
-# Create cube class	
+
 class Cube:
 	# Rotation matrixes
 	_xrot=np.array([
@@ -48,16 +47,10 @@ class Cube:
 		self.MIN = -((size - 1) / 2)
 		self.MAX = ((size - 1) / 2)
 		
-# Create a cube array containing layers i	
+# Create a cube array containing every atoms called "blocks"
 		cube=[]
-		for z in range(size):
-			
-# Create a layer array containing rows j			
+		for z in range(size):		
 			for y in range(size):
-				
-# Create a row array containing blocks k
-# Block is an array containing the position of the block and a vector containing parameters 
-# representing the orientation of the colored face according to the coordinate and an encoding of its color as its norm
 				for x in range(size):
 					b = Block(x - ((size - 1) / 2), y - ((size - 1) / 2), z - ((size - 1) / 2), size)
 					cube.append(b)
@@ -65,6 +58,8 @@ class Cube:
 			self.cube = cube
 
 	def rotation(self, move):
+
+# Current moves only support outer edges of a 3x3		
 		rotation_mat = np.array([])
 		side = 0
 		if move == "L":
@@ -106,15 +101,25 @@ class Cube:
 
 		for b in self.cube:
 			if b.x == self.MIN:
+				"""
+				visual confirmation
+
 				print(b.pos, b.colors)
+				"""
 				b.pos = np.matmul(b.pos, self._xrot)
 				b.colors = np.matmul(b.colors, self._xrot)
+				"""
+				of the rotations
+
 				print(b.pos, b.colors)
 				print("-=-=-=-=-=-=")
+				"""
 
 class Block():
 	def __init__(self, x, y ,z, size):
+# Position of the block in the cube
 		self.pos = np.array([x, y, z])
+# Color values {1, 2, 3, 4, 5, 6} and orientation {-1, 1} of the colored faces of a block in a 3x1 vector
 		self.colors = np.array([0, 0, 0])
 		self.x = self.pos[0]
 		self.y = self.pos[1]
@@ -122,9 +127,13 @@ class Block():
 
 		max_coord = ((size - 1) / 2)
 
+# For example, face towards negative x
 		if x == -max_coord:
+# is colored 5
 			self.colors[0] = -5
+# Face towards positive x
 		if x == max_coord:
+# is colored 2
 			self.colors[0] = 2
 		if y == -max_coord:
 			self.colors[1] = -1
