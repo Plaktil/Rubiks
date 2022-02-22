@@ -50,13 +50,13 @@ def draw_window():
     #WIN.blit(CUBE_FRAME_RESIZED, (0,0))
     WIN.blit(RED_TOP_RESIZED, (210,97))
     WIN.blit(WHITE_TOP_RESIZED, (164,123))
-    WIN.blit(YELLOW_TOP_RESIZED, (164,174))
-    WIN.blit(ORANGE_TOP_RESIZED, (256,174))
+    WIN.blit(YELLOW_TOP_RESIZED, (164,175))
+    WIN.blit(ORANGE_TOP_RESIZED, (256,175))
     WIN.blit(BLUE_TOP_RESIZED, (210,149))
     WIN.blit(GREEN_TOP_RESIZED, (256,123))
     WIN.blit(ORANGE_TOP_RESIZED, (118,149))
     WIN.blit(BLUE_TOP_RESIZED, (302,149))
-    WIN.blit(GREEN_TOP_RESIZED, (210,200))
+    WIN.blit(GREEN_TOP_RESIZED, (210,201))
 
     pygame.display.update()
 
