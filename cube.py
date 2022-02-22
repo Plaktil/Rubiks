@@ -98,22 +98,29 @@ class Cube:
 		elif move == "F'":
 			side = self.MAX
 			rotation_mat = self._zrot
+		else:
+			print(move + " is not a recognized move. \n")
 
 		for b in self.cube:
-			if b.x == self.MIN:
+			if b.x == side:
 				"""
 				visual confirmation
 
 				print(b.pos, b.colors)
 				"""
-				b.pos = np.matmul(b.pos, self._xrot)
-				b.colors = np.matmul(b.colors, self._xrot)
+				b.pos = np.matmul(b.pos, rotation_mat)
+				b.colors = np.matmul(b.colors, rotation_mat)
 				"""
 				of the rotations
 
 				print(b.pos, b.colors)
 				print("-=-=-=-=-=-=")
 				"""
+
+	def draw(self):
+		for b in self.cube:
+			b.draw()
+
 
 class Block():
 	def __init__(self, x, y ,z, size):
@@ -144,13 +151,12 @@ class Block():
 		if z == max_coord- 1:
 			self.colors[2] = 4
 
-	def draw():
-		pass
+	def draw(self):
+		print(self.pos, self.colors)
 				
 		
 # Test section
-a=Cube(3)
-for b in a.cube: 
-	print(b.pos, b.colors)
-
-
+if __name__ == "main":
+	a=Cube(3)
+	for b in a.cube: 
+		print(b.pos, b.colors)
