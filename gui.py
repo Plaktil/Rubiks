@@ -98,10 +98,13 @@ YELLOW_RIGHT = pygame.image.load(
     os.path.join('assets', 'yellow_right.png'))
 YELLOW_RIGHT_RESIZED = pygame.transform.scale(YELLOW_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
 
+"""
+This should be (and already is) in the main. Or it could be in a main() fct to test it out
 def take_input():
     moves = input('Input moves separated by spaces:')
     moves_list = moves.split()
     print(moves_list)
+"""
 
 def draw_window():
     WIN.blit(BACKGROUND_RESIZED, (0,0))
@@ -109,6 +112,14 @@ def draw_window():
     #WIN.blit(CUBE_FRAME_RESIZED, (0,BACK_SHIFT))
     # Front
     # Top
+
+    # Having an algorithm determine the blit position of each square depending on its block coordinate
+    # would be a lot more compact and readable. Try asociating color prefixes (ie: RED, YELLOW, etc) to
+    # numbers (1 to 6) and position (ie: TOP, LEFT, etc.) to coordinate + sign to form the name of
+    # the asset to use so that you can use color + "_" + position + ".png" to load the assets just in time
+    # instead of keeping them loaded in Globals for the whole code. Then you can loop through the blocks
+    # and use a single blit statement to do the whole job.
+
     WIN.blit(RED_TOP_RESIZED, (210,47))
     WIN.blit(WHITE_TOP_RESIZED, (164,73))
     WIN.blit(YELLOW_TOP_RESIZED, (164,125))
