@@ -3,7 +3,7 @@
 import pygame
 import os
 
-# Constants
+# Constantsssss
 
 WIDTH, HEIGHT = 500, 750
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
