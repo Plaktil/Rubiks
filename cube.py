@@ -134,10 +134,51 @@ class Cube:
 	
 		return blockList
 
+	"""
+	Any 3x3x3 Rubiks can theoretically be solved in 20 moves. Therefore a shuffle does not need to be more than
+	20 (somewhat thoughtfully chosen) moves. This implementation follows this concept.
+	"""
 	def shuffle(self):
-		for i in range(0, 100):
-			self.rotation(self.moves[random.randint(0, len(self.moves)-1)])
+		allowedMoves = dict(zip(self.moves, [True for i in range(0, len(self.moves)-1)]))
+		moveList = []
+		moveCount = 0
 
+		while moveCount < 20:
+			nextMove = self.moves[random.randint(0, len(self.moves)-1)]
+
+			"""
+			If the move is not directly undoing another move and if it not the third time it is repeated,
+			it is elligible to be the next move of the shuffle.
+			"""
+			if allowedMoves[nextMove] :
+				# If it does L, R, L then it will still go through as 3 separate moves for now
+				if len(moveList) >= 1 and moveList[-1] == nextMove:
+					moveList[-1] = nextMove[0] + "2"
+					allowedMoves[nextMove] = False
+				else :
+					moveList.push(nextMove)
+					moveCount += 1
+				self.rotation(nextMove)
+
+
+				if "'" in nextMove: # Remove the "'" (prime)
+					counterMove = nextMove[0]
+				else:
+					counterMove = nextMove + "'" # Add a "'" (prime)
+				allowedMoves[counterMove] = False
+
+				if nextMove[0] == "L" or nextMove[0] == "R":
+					trueMoves = "U U' D D' F F' B B'"
+				elif nextMove[0] == "U" or nextMove[0] == "D":
+					trueMoves = "L L' R R' F F' B B'"
+				elif nextMove[0] == "F" or nextMove[0] == "B":
+					trueMoves = "L L' R R' D D' U U'"
+
+				for move in trueMoves.split():
+					allowedMoves[move] = True
+
+				
+				
 
 class Block():
 	def __init__(self, x, y ,z, size):
