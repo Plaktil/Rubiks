@@ -3,6 +3,35 @@
 import pygame
 import os
 
+TEST_LIST = [
+    ([-1, -1, -1],[-5, -1, -3]),
+    ([0, -1, -1],[0, -1, -3]),
+    ([1, -1, -1],[2, -1, -3]),
+    ([-1, 0, -1],[-5, 0, -3]),
+    ([0, 0, -1],[0, 0, -3]),
+    ([1, 0, -1],[2, 0, -3]),
+    ([-1, 1, -1],[-5, 6, -3]),
+    ([ 0, 1, -1],[0, 6, -3]),
+    ([ 1, 1, -1],[2, 6, -3]),
+    ([-1, -1, 0],[-5, -1, 4]),
+    ([ 0, -1, 0],[0, -1, 4]),
+    ([ 1, -1, 0],[2, -1, 4]),
+    ([-1, 0, 0],[-5, 0, 4]),
+    ([0, 0, 0],[0, 0, 4]),
+    ([1, 0, 0],[2, 0, 4]),
+    ([-1,  1, 0],[-5, 6, 4]),
+    ([0, 1, 0],[0, 6, 4]),
+    ([1, 1, 0],[2, 6, 4]),
+    ([-1, -1, 1],[-5, -1, 0]),
+    ([ 0, -1, 1],[0, -1, 0]),
+    ([ 1, -1, 1],[2, -1, 0]),
+    ([-1, 0, 1],[-5, 0, 0]),
+    ([0, 0, 1.],[0, 0, 0]),
+    ([1, 0, 1],[2, 0, 0]),
+    ([-1, 1, 1],[-5, 6, 0]),
+    ([0, 1, 1],[0, 6, 0]),
+    ([1, 1, 1],[2, 6, 0])]
+
 # Constants
 
 WIDTH, HEIGHT = 500, 750
@@ -99,16 +128,9 @@ YELLOW_RIGHT = pygame.image.load(
     os.path.join('assets', 'yellow_right.png'))
 YELLOW_RIGHT_RESIZED = pygame.transform.scale(YELLOW_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
 
-"""
-This should be (and already is) in the main. Or it could be in a main() fct to test it out
-def take_input():
-    moves = input('Input moves separated by spaces:')
-    moves_list = moves.split()
-    print(moves_list)
-"""
-
-def draw_window():
+def draw(TEST_LIST):
     WIN.blit(BACKGROUND_RESIZED, (0,0))
+    
     #WIN.blit(CUBE_FRAME_RESIZED, (0,-50))
     #WIN.blit(CUBE_FRAME_RESIZED, (0,BACK_SHIFT))
     # Front
@@ -193,8 +215,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
         
-        draw_window()
-        #take_input()
+        draw(TEST_LIST)
 
     pygame.quit()
 
