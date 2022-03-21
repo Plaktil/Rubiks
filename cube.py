@@ -117,14 +117,24 @@ class Cube:
 				print("-=-=-=-=-=-=")
 				"""
 
-	def draw(self):
+	"""
+	This method is only used until the GUI picks up the job of representating the cube visually
+	"""
+	def _draw(self):
 		for b in self.cube:
-			b.draw()
+			b._draw()
+
+	def getCube(self):
+		blockList = []
+		for b in self.cube:
+			blockList.append((b.pos, b.colors))
+	
+		return blockList
 
 
 class Block():
 	def __init__(self, x, y ,z, size):
-# Position of the block in the cube
+# Position of the block in the cube: (-1, -1, -1) is top left back and (0, 0, 0) is the middle block which is non-existent.
 		self.pos = np.array([x, y, z])
 # Color values {1, 2, 3, 4, 5, 6} and orientation {-1, 1} of the colored faces of a block in a 3x1 vector
 		self.colors = np.array([0, 0, 0])
@@ -151,7 +161,7 @@ class Block():
 		if z == max_coord- 1:
 			self.colors[2] = 4
 
-	def draw(self):
+	def _draw(self):
 		print(self.pos, self.colors)
 				
 		
