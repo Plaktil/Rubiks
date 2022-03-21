@@ -15,10 +15,14 @@ if __name__ == "__main__":
     They can be entered one at a time or as a sequence in the form:
     [move] [another move] [and another one] ...
 
-    Enter "E" to exit
+    Enter 'E' to exit
     """
-
     print(instructions)
+
+    startPos = input("Enter 'S' to shuffle or 'C' to continue: ")
+
+    if startPos == "S":
+        rubiks_cube.shuffle()
 
     run = True
     while run:

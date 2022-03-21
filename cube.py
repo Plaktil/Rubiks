@@ -10,9 +10,12 @@ Rubik's cube
 
 '''
 import numpy as np
+import random
 
 
 class Cube:
+	# Allowed moves
+	moves = ("L", "L'", "R", "R'", "U", "U'", "D", "D'", "F", "F'", "B", "B'")
 	# Rotation matrixes
 	_xrot=np.array([
 	[1, 0, 0],
@@ -130,6 +133,10 @@ class Cube:
 			blockList.append((b.pos, b.colors))
 	
 		return blockList
+
+	def shuffle(self):
+		for i in range(0, 100):
+			self.rotation(self.moves[random.randint(0, len(self.moves)-1)])
 
 
 class Block():
