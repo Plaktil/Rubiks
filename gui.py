@@ -3,6 +3,7 @@
 import pygame
 import os
 
+'''
 TEST_LIST = [
     ([-1, -1, -1],[-5, -1, -3]),
     ([0, -1, -1],[0, -1, -3]),
@@ -31,6 +32,7 @@ TEST_LIST = [
     ([-1, 1, 1],[-5, 6, 0]),
     ([0, 1, 1],[0, 6, 0]),
     ([1, 1, 1],[2, 6, 0])]
+'''
 
 # Constants
 
@@ -56,29 +58,29 @@ CUBE_FRAME = pygame.image.load(
     os.path.join('assets', 'cube.png'))
 CUBE_FRAME_RESIZED = pygame.transform.scale(CUBE_FRAME, (CUBE_WIDTH, CUBE_HEIGHT))
 
-RED_TOP = pygame.image.load(
-    os.path.join('assets', 'red_top.png'))
-RED_TOP_RESIZED = pygame.transform.scale(RED_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
+#RED_TOP = pygame.image.load(
+#    os.path.join('assets', 'red_top.png'))
+#RED_TOP_RESIZED = pygame.transform.scale(RED_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
 
-WHITE_TOP = pygame.image.load(
-    os.path.join('assets', 'white_top.png'))
-WHITE_TOP_RESIZED = pygame.transform.scale(WHITE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
+#WHITE_TOP = pygame.image.load(
+#    os.path.join('assets', 'white_top.png'))
+#WHITE_TOP_RESIZED = pygame.transform.scale(WHITE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
 
-BLUE_TOP = pygame.image.load(
-    os.path.join('assets', 'blue_top.png'))
-BLUE_TOP_RESIZED = pygame.transform.scale(BLUE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
+#BLUE_TOP = pygame.image.load(
+#    os.path.join('assets', 'blue_top.png'))
+#BLUE_TOP_RESIZED = pygame.transform.scale(BLUE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
 
-GREEN_TOP = pygame.image.load(
-    os.path.join('assets', 'green_top.png'))
-GREEN_TOP_RESIZED = pygame.transform.scale(GREEN_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
+#GREEN_TOP = pygame.image.load(
+#    os.path.join('assets', 'green_top.png'))
+#GREEN_TOP_RESIZED = pygame.transform.scale(GREEN_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
 
-ORANGE_TOP = pygame.image.load(
-    os.path.join('assets', 'orange_top.png'))
-ORANGE_TOP_RESIZED = pygame.transform.scale(ORANGE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
+#ORANGE_TOP = pygame.image.load(
+#    os.path.join('assets', 'orange_top.png'))
+#ORANGE_TOP_RESIZED = pygame.transform.scale(ORANGE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
 
-YELLOW_TOP = pygame.image.load(
-    os.path.join('assets', 'yellow_top.png'))
-YELLOW_TOP_RESIZED = pygame.transform.scale(YELLOW_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
+#YELLOW_TOP = pygame.image.load(
+#    os.path.join('assets', 'yellow_top.png'))
+#YELLOW_TOP_RESIZED = pygame.transform.scale(YELLOW_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
 
 RED_LEFT = pygame.image.load(
     os.path.join('assets', 'red_left.png'))
@@ -128,8 +130,9 @@ YELLOW_RIGHT = pygame.image.load(
     os.path.join('assets', 'yellow_right.png'))
 YELLOW_RIGHT_RESIZED = pygame.transform.scale(YELLOW_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
 
+WIN.blit(BACKGROUND_RESIZED, (0,0))
+
 def draw(TEST_LIST):
-    WIN.blit(BACKGROUND_RESIZED, (0,0))
     
     #WIN.blit(CUBE_FRAME_RESIZED, (0,-50))
     #WIN.blit(CUBE_FRAME_RESIZED, (0,BACK_SHIFT))
@@ -143,6 +146,29 @@ def draw(TEST_LIST):
     # instead of keeping them loaded in Globals for the whole code. Then you can loop through the blocks
     # and use a single blit statement to do the whole job.
 
+    Y_COORDINATES = {
+        "-1-1-1": (210, 47), "-1-10": (164, 73), "-1-11": (118, 99), "0-1-1": (256, 73), "0-10": (210, 99), "0-11": (164, 125),
+        "1-1-1": (302, 99), "1-10": (256, 125), "1-11": (210, 151), "-11-1": (210, 572), "-110": (164, 598), "-111": (118, 624), 
+        "01-1": (256, 598), "010": (210, 624), "011": (164, 650), "11-1": (302, 624), "110": (256, 650), "111": (210, 676)
+    }
+
+    for i in range(3):
+        for k in range(3):
+            for cube in range(len(TEST_LIST)):
+                if TEST_LIST[cube][0][1] == -1:
+                    if TEST_LIST[cube][1][1] != 0:
+                        WIN.blit(
+                            pygame.transform.scale(pygame.image.load(os.path.join('assets', 
+                                str(-TEST_LIST[cube][1][1])+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
+                                Y_COORDINATES[str(i-1)+str(-1)+str(k-1)])
+                if TEST_LIST[cube][0][1] == 1:
+                    if TEST_LIST[cube][1][1] != 0:
+                        WIN.blit(
+                            pygame.transform.scale(pygame.image.load(os.path.join('assets', 
+                                str(TEST_LIST[cube][1][1])+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
+                                Y_COORDINATES[str(i-1)+str(1)+str(k-1)])
+ 
+    ''' 
     WIN.blit(RED_TOP_RESIZED, (210,47))
     WIN.blit(WHITE_TOP_RESIZED, (164,73))
     WIN.blit(YELLOW_TOP_RESIZED, (164,125))
@@ -152,6 +178,7 @@ def draw(TEST_LIST):
     WIN.blit(ORANGE_TOP_RESIZED, (118,99))
     WIN.blit(BLUE_TOP_RESIZED, (302,99))
     WIN.blit(GREEN_TOP_RESIZED, (210,151))
+    '''
     # Left
     WIN.blit(RED_LEFT_RESIZED, (115,127))
     WIN.blit(WHITE_LEFT_RESIZED, (160,153))
@@ -174,8 +201,9 @@ def draw(TEST_LIST):
     WIN.blit(GREEN_RIGHT_RESIZED, (254,290))
 
     # Back
+    '''
     # Top
-    WIN.blit(RED_TOP_RESIZED, (210,97+BACK_SHIFT))
+    WIN.blit(WHITE_TOP_RESIZED, (210,97+BACK_SHIFT))
     WIN.blit(WHITE_TOP_RESIZED, (164,123+BACK_SHIFT))
     WIN.blit(YELLOW_TOP_RESIZED, (164,175+BACK_SHIFT))
     WIN.blit(ORANGE_TOP_RESIZED, (256,175+BACK_SHIFT))
@@ -184,6 +212,7 @@ def draw(TEST_LIST):
     WIN.blit(ORANGE_TOP_RESIZED, (118,149+BACK_SHIFT))
     WIN.blit(BLUE_TOP_RESIZED, (302,149+BACK_SHIFT))
     WIN.blit(GREEN_TOP_RESIZED, (210,201+BACK_SHIFT))
+    '''
     # Left
     WIN.blit(RED_RIGHT_RESIZED, (207,127+SIDE_SHIFT))
     WIN.blit(WHITE_RIGHT_RESIZED, (160,153+SIDE_SHIFT))
@@ -206,7 +235,7 @@ def draw(TEST_LIST):
     WIN.blit(GREEN_LEFT_RESIZED, (346,290+SIDE_SHIFT))
 
     pygame.display.update()
-
+'''
 def main():
 
     run = True
@@ -221,3 +250,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''
