@@ -140,11 +140,13 @@ class Cube:
 	"""
 	def shuffle(self):
 		allowedMoves = dict(zip(self.moves, [True for i in range(0, len(self.moves)-1)]))
+		print(allowedMoves)
 		moveList = []
 		moveCount = 0
 
 		while moveCount < 20:
 			nextMove = self.moves[random.randint(0, len(self.moves)-1)]
+			print(nextMove)
 
 			"""
 			If the move is not directly undoing another move and if it not the third time it is repeated,
@@ -156,7 +158,7 @@ class Cube:
 					moveList[-1] = nextMove[0] + "2"
 					allowedMoves[nextMove] = False
 				else :
-					moveList.push(nextMove)
+					moveList.append(nextMove)
 					moveCount += 1
 				self.rotation(nextMove)
 
@@ -176,6 +178,8 @@ class Cube:
 
 				for move in trueMoves.split():
 					allowedMoves[move] = True
+
+		return moveList
 
 				
 				
