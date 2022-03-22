@@ -25,6 +25,8 @@ BACKGROUND_RESIZED = pygame.transform.scale(BACKGROUND, (WIDTH, HEIGHT))
 
 WIN.blit(BACKGROUND_RESIZED, (0,0))
 
+pygame.event.get()
+
 def draw(TEST_LIST):
     #WIN.blit(CUBE_FRAME_RESIZED, (0,-50))
     #WIN.blit(CUBE_FRAME_RESIZED, (0,BACK_SHIFT))
@@ -51,13 +53,13 @@ def draw(TEST_LIST):
                     if TEST_LIST[cube][1][1] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
-                                str(-TEST_LIST[cube][1][1])+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
+                                str(abs(TEST_LIST[cube][1][1]))+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
                                 Y_COORDINATES[str(i-1)+str(-1)+str(j-1)])
                 if TEST_LIST[cube][0][1] == 1:
                     if TEST_LIST[cube][1][1] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
-                                str(TEST_LIST[cube][1][1])+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
+                                str(abs(TEST_LIST[cube][1][1]))+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
                                 Y_COORDINATES[str(i-1)+str(1)+str(j-1)])
     
     X_COORDINATES = {
@@ -73,13 +75,13 @@ def draw(TEST_LIST):
                     if TEST_LIST[cube][1][0] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
-                                str(-TEST_LIST[cube][1][0])+'_right.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                str(abs(TEST_LIST[cube][1][0]))+'_right.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
                                 X_COORDINATES[str(-1)+str(i-1)+str(j-1)])
                 if TEST_LIST[cube][0][0] == 1:
                     if TEST_LIST[cube][1][0] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
-                                str(TEST_LIST[cube][1][0])+'_right.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                str(abs(TEST_LIST[cube][1][0]))+'_right.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
                                 X_COORDINATES[str(1)+str(i-1)+str(j-1)]) 
     
     Z_COORDINATES = {
@@ -95,13 +97,13 @@ def draw(TEST_LIST):
                     if TEST_LIST[cube][1][2] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
-                                str(-TEST_LIST[cube][1][2])+'_left.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                str(abs(TEST_LIST[cube][1][2]))+'_left.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
                                 Z_COORDINATES[str(i-1)+str(j-1)+str(-1)])
                 if TEST_LIST[cube][0][2] == 1:
                     if TEST_LIST[cube][1][2] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
-                                str(TEST_LIST[cube][1][2])+'_left.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                str(abs(TEST_LIST[cube][1][2]))+'_left.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
                                 Z_COORDINATES[str(i-1)+str(j-1)+str(1)])                               
 
     pygame.display.update()
