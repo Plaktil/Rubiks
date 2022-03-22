@@ -26,7 +26,6 @@ BACKGROUND_RESIZED = pygame.transform.scale(BACKGROUND, (WIDTH, HEIGHT))
 WIN.blit(BACKGROUND_RESIZED, (0,0))
 
 def draw(TEST_LIST):
-    
     #WIN.blit(CUBE_FRAME_RESIZED, (0,-50))
     #WIN.blit(CUBE_FRAME_RESIZED, (0,BACK_SHIFT))
     # Front
@@ -38,6 +37,8 @@ def draw(TEST_LIST):
     # the asset to use so that you can use color + "_" + position + ".png" to load the assets just in time
     # instead of keeping them loaded in Globals for the whole code. Then you can loop through the blocks
     # and use a single blit statement to do the whole job.
+
+    pygame.event.get()
 
     Y_COORDINATES = {
         "-1-1-1": (210, 47), "-1-10": (164, 73), "-1-11": (118, 99), "0-1-1": (256, 73), "0-10": (210, 99), "0-11": (164, 125),

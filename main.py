@@ -4,6 +4,7 @@ import gui
 if __name__ == "__main__":
 
     rubiks_cube = cube.Cube(3)
+    rubiks_cube.rotation("U")
     
     move = ""
 
