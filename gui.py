@@ -3,37 +3,6 @@
 import pygame
 import os
 
-'''
-TEST_LIST = [
-    ([-1, -1, -1],[-5, -1, -3]),
-    ([0, -1, -1],[0, -1, -3]),
-    ([1, -1, -1],[2, -1, -3]),
-    ([-1, 0, -1],[-5, 0, -3]),
-    ([0, 0, -1],[0, 0, -3]),
-    ([1, 0, -1],[2, 0, -3]),
-    ([-1, 1, -1],[-5, 6, -3]),
-    ([ 0, 1, -1],[0, 6, -3]),
-    ([ 1, 1, -1],[2, 6, -3]),
-    ([-1, -1, 0],[-5, -1, 4]),
-    ([ 0, -1, 0],[0, -1, 4]),
-    ([ 1, -1, 0],[2, -1, 4]),
-    ([-1, 0, 0],[-5, 0, 4]),
-    ([0, 0, 0],[0, 0, 4]),
-    ([1, 0, 0],[2, 0, 4]),
-    ([-1,  1, 0],[-5, 6, 4]),
-    ([0, 1, 0],[0, 6, 4]),
-    ([1, 1, 0],[2, 6, 4]),
-    ([-1, -1, 1],[-5, -1, 0]),
-    ([ 0, -1, 1],[0, -1, 0]),
-    ([ 1, -1, 1],[2, -1, 0]),
-    ([-1, 0, 1],[-5, 0, 0]),
-    ([0, 0, 1.],[0, 0, 0]),
-    ([1, 0, 1],[2, 0, 0]),
-    ([-1, 1, 1],[-5, 6, 0]),
-    ([0, 1, 1],[0, 6, 0]),
-    ([1, 1, 1],[2, 6, 0])]
-'''
-
 # Constants
 
 WIDTH, HEIGHT = 500, 750
@@ -53,82 +22,6 @@ SIDE_FACE_WIDTH = 40
 BACKGROUND = pygame.image.load(
     os.path.join('assets', 'background.png'))
 BACKGROUND_RESIZED = pygame.transform.scale(BACKGROUND, (WIDTH, HEIGHT))
-
-CUBE_FRAME = pygame.image.load(
-    os.path.join('assets', 'cube.png'))
-CUBE_FRAME_RESIZED = pygame.transform.scale(CUBE_FRAME, (CUBE_WIDTH, CUBE_HEIGHT))
-
-#RED_TOP = pygame.image.load(
-#    os.path.join('assets', 'red_top.png'))
-#RED_TOP_RESIZED = pygame.transform.scale(RED_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
-
-#WHITE_TOP = pygame.image.load(
-#    os.path.join('assets', 'white_top.png'))
-#WHITE_TOP_RESIZED = pygame.transform.scale(WHITE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
-
-#BLUE_TOP = pygame.image.load(
-#    os.path.join('assets', 'blue_top.png'))
-#BLUE_TOP_RESIZED = pygame.transform.scale(BLUE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
-
-#GREEN_TOP = pygame.image.load(
-#    os.path.join('assets', 'green_top.png'))
-#GREEN_TOP_RESIZED = pygame.transform.scale(GREEN_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
-
-#ORANGE_TOP = pygame.image.load(
-#    os.path.join('assets', 'orange_top.png'))
-#ORANGE_TOP_RESIZED = pygame.transform.scale(ORANGE_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
-
-#YELLOW_TOP = pygame.image.load(
-#    os.path.join('assets', 'yellow_top.png'))
-#YELLOW_TOP_RESIZED = pygame.transform.scale(YELLOW_TOP, (TOP_FACE_WIDTH, TOP_FACE_HEIGHT))
-
-RED_LEFT = pygame.image.load(
-    os.path.join('assets', 'red_left.png'))
-RED_LEFT_RESIZED = pygame.transform.scale(RED_LEFT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-WHITE_LEFT = pygame.image.load(
-    os.path.join('assets', 'white_left.png'))
-WHITE_LEFT_RESIZED = pygame.transform.scale(WHITE_LEFT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-BLUE_LEFT = pygame.image.load(
-    os.path.join('assets', 'blue_left.png'))
-BLUE_LEFT_RESIZED = pygame.transform.scale(BLUE_LEFT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-GREEN_LEFT = pygame.image.load(
-    os.path.join('assets', 'green_left.png'))
-GREEN_LEFT_RESIZED = pygame.transform.scale(GREEN_LEFT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-ORANGE_LEFT = pygame.image.load(
-    os.path.join('assets', 'orange_left.png'))
-ORANGE_LEFT_RESIZED = pygame.transform.scale(ORANGE_LEFT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-YELLOW_LEFT = pygame.image.load(
-    os.path.join('assets', 'yellow_left.png'))
-YELLOW_LEFT_RESIZED = pygame.transform.scale(YELLOW_LEFT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-RED_RIGHT = pygame.image.load(
-    os.path.join('assets', 'red_right.png'))
-RED_RIGHT_RESIZED = pygame.transform.scale(RED_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-WHITE_RIGHT = pygame.image.load(
-    os.path.join('assets', 'white_right.png'))
-WHITE_RIGHT_RESIZED = pygame.transform.scale(WHITE_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-BLUE_RIGHT = pygame.image.load(
-    os.path.join('assets', 'blue_right.png'))
-BLUE_RIGHT_RESIZED = pygame.transform.scale(BLUE_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-GREEN_RIGHT = pygame.image.load(
-    os.path.join('assets', 'green_right.png'))
-GREEN_RIGHT_RESIZED = pygame.transform.scale(GREEN_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-ORANGE_RIGHT = pygame.image.load(
-    os.path.join('assets', 'orange_right.png'))
-ORANGE_RIGHT_RESIZED = pygame.transform.scale(ORANGE_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
-
-YELLOW_RIGHT = pygame.image.load(
-    os.path.join('assets', 'yellow_right.png'))
-YELLOW_RIGHT_RESIZED = pygame.transform.scale(YELLOW_RIGHT, (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT))
 
 WIN.blit(BACKGROUND_RESIZED, (0,0))
 
@@ -153,101 +46,64 @@ def draw(TEST_LIST):
     }
 
     for i in range(3):
-        for k in range(3):
+        for j in range(3):
             for cube in range(len(TEST_LIST)):
                 if TEST_LIST[cube][0][1] == -1:
                     if TEST_LIST[cube][1][1] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
                                 str(-TEST_LIST[cube][1][1])+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
-                                Y_COORDINATES[str(i-1)+str(-1)+str(k-1)])
+                                Y_COORDINATES[str(i-1)+str(-1)+str(j-1)])
                 if TEST_LIST[cube][0][1] == 1:
                     if TEST_LIST[cube][1][1] != 0:
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
                                 str(TEST_LIST[cube][1][1])+'_top.png')), (TOP_FACE_WIDTH, TOP_FACE_HEIGHT)), 
-                                Y_COORDINATES[str(i-1)+str(1)+str(k-1)])
- 
-    ''' 
-    WIN.blit(RED_TOP_RESIZED, (210,47))
-    WIN.blit(WHITE_TOP_RESIZED, (164,73))
-    WIN.blit(YELLOW_TOP_RESIZED, (164,125))
-    WIN.blit(ORANGE_TOP_RESIZED, (256,125))
-    WIN.blit(BLUE_TOP_RESIZED, (210,99))
-    WIN.blit(GREEN_TOP_RESIZED, (256,73))
-    WIN.blit(ORANGE_TOP_RESIZED, (118,99))
-    WIN.blit(BLUE_TOP_RESIZED, (302,99))
-    WIN.blit(GREEN_TOP_RESIZED, (210,151))
-    '''
-    # Left
-    WIN.blit(RED_LEFT_RESIZED, (115,127))
-    WIN.blit(WHITE_LEFT_RESIZED, (160,153))
-    WIN.blit(YELLOW_LEFT_RESIZED, (207,180))
-    WIN.blit(ORANGE_LEFT_RESIZED, (115,182))
-    WIN.blit(BLUE_LEFT_RESIZED, (160,208))
-    WIN.blit(GREEN_LEFT_RESIZED, (207,235))
-    WIN.blit(ORANGE_LEFT_RESIZED, (115,237))
-    WIN.blit(BLUE_LEFT_RESIZED, (160,263))
-    WIN.blit(GREEN_LEFT_RESIZED, (207,290))
-    # Right
-    WIN.blit(RED_RIGHT_RESIZED, (346,127))
-    WIN.blit(WHITE_RIGHT_RESIZED, (300,153))
-    WIN.blit(YELLOW_RIGHT_RESIZED, (254,180))
-    WIN.blit(ORANGE_RIGHT_RESIZED, (346,182))
-    WIN.blit(BLUE_RIGHT_RESIZED, (300,208))
-    WIN.blit(GREEN_RIGHT_RESIZED, (254,235))
-    WIN.blit(ORANGE_RIGHT_RESIZED, (346,237))
-    WIN.blit(BLUE_RIGHT_RESIZED, (300,263))
-    WIN.blit(GREEN_RIGHT_RESIZED, (254,290))
+                                Y_COORDINATES[str(i-1)+str(1)+str(j-1)])
+    
+    X_COORDINATES = {
+        "-1-1-1": (207, 409), "-1-10": (160, 435), "-1-11": (115, 462), "-10-1": (207, 464), "-100": (160, 490), "-101": (115, 517),
+        "-11-1": (207, 519), "-110": (160, 545), "-111": (115, 572), "1-1-1": (346, 127), "1-10": (300, 153), "1-11": (254, 180), 
+        "10-1": (346, 182), "100": (300, 208), "101": (254, 235), "11-1": (346, 237), "110": (300, 263), "111": (254, 290)
+    }
 
-    # Back
-    '''
-    # Top
-    WIN.blit(WHITE_TOP_RESIZED, (210,97+BACK_SHIFT))
-    WIN.blit(WHITE_TOP_RESIZED, (164,123+BACK_SHIFT))
-    WIN.blit(YELLOW_TOP_RESIZED, (164,175+BACK_SHIFT))
-    WIN.blit(ORANGE_TOP_RESIZED, (256,175+BACK_SHIFT))
-    WIN.blit(BLUE_TOP_RESIZED, (210,149+BACK_SHIFT))
-    WIN.blit(GREEN_TOP_RESIZED, (256,123+BACK_SHIFT))
-    WIN.blit(ORANGE_TOP_RESIZED, (118,149+BACK_SHIFT))
-    WIN.blit(BLUE_TOP_RESIZED, (302,149+BACK_SHIFT))
-    WIN.blit(GREEN_TOP_RESIZED, (210,201+BACK_SHIFT))
-    '''
-    # Left
-    WIN.blit(RED_RIGHT_RESIZED, (207,127+SIDE_SHIFT))
-    WIN.blit(WHITE_RIGHT_RESIZED, (160,153+SIDE_SHIFT))
-    WIN.blit(YELLOW_RIGHT_RESIZED, (115,180+SIDE_SHIFT))
-    WIN.blit(ORANGE_RIGHT_RESIZED, (207,182+SIDE_SHIFT))
-    WIN.blit(BLUE_RIGHT_RESIZED, (160,208+SIDE_SHIFT))
-    WIN.blit(GREEN_RIGHT_RESIZED, (115,235+SIDE_SHIFT))
-    WIN.blit(ORANGE_RIGHT_RESIZED, (207,237+SIDE_SHIFT))
-    WIN.blit(BLUE_RIGHT_RESIZED, (160,263+SIDE_SHIFT))
-    WIN.blit(GREEN_RIGHT_RESIZED, (115,290+SIDE_SHIFT))
-    # Right
-    WIN.blit(RED_LEFT_RESIZED, (254,127+SIDE_SHIFT))
-    WIN.blit(WHITE_LEFT_RESIZED, (300,153+SIDE_SHIFT))
-    WIN.blit(YELLOW_LEFT_RESIZED, (346,180+SIDE_SHIFT))
-    WIN.blit(ORANGE_LEFT_RESIZED, (254,182+SIDE_SHIFT))
-    WIN.blit(BLUE_LEFT_RESIZED, (300,208+SIDE_SHIFT))
-    WIN.blit(GREEN_LEFT_RESIZED, (346,235+SIDE_SHIFT))
-    WIN.blit(ORANGE_LEFT_RESIZED, (254,237+SIDE_SHIFT))
-    WIN.blit(BLUE_LEFT_RESIZED, (300,263+SIDE_SHIFT))
-    WIN.blit(GREEN_LEFT_RESIZED, (346,290+SIDE_SHIFT))
+    for i in range(3):
+        for j in range(3):
+            for cube in range(len(TEST_LIST)):
+                if TEST_LIST[cube][0][0] == -1:
+                    if TEST_LIST[cube][1][0] != 0:
+                        WIN.blit(
+                            pygame.transform.scale(pygame.image.load(os.path.join('assets', 
+                                str(-TEST_LIST[cube][1][0])+'_right.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                X_COORDINATES[str(-1)+str(i-1)+str(j-1)])
+                if TEST_LIST[cube][0][0] == 1:
+                    if TEST_LIST[cube][1][0] != 0:
+                        WIN.blit(
+                            pygame.transform.scale(pygame.image.load(os.path.join('assets', 
+                                str(TEST_LIST[cube][1][0])+'_right.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                X_COORDINATES[str(1)+str(i-1)+str(j-1)]) 
+    
+    Z_COORDINATES = {
+        "-1-1-1": (254, 409), "-10-1": (254, 464), "-11-1": (254, 519), "0-1-1": (300, 435), "00-1": (300, 490), "01-1": (300, 545),
+        "1-1-1": (346, 462), "10-1": (346, 517), "11-1": (346, 572), "-1-11": (115, 127), "-101": (115, 182), "-111": (115, 237), 
+        "0-11": (160, 153), "001": (160, 208), "011": (160, 263), "1-11": (207, 180), "101": (207, 235), "111": (207, 290)
+    }
+
+    for i in range(3):
+        for j in range(3):
+            for cube in range(len(TEST_LIST)):
+                if TEST_LIST[cube][0][2] == -1:
+                    if TEST_LIST[cube][1][2] != 0:
+                        WIN.blit(
+                            pygame.transform.scale(pygame.image.load(os.path.join('assets', 
+                                str(-TEST_LIST[cube][1][2])+'_left.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                Z_COORDINATES[str(i-1)+str(j-1)+str(-1)])
+                if TEST_LIST[cube][0][2] == 1:
+                    if TEST_LIST[cube][1][2] != 0:
+                        print("yo")
+                        WIN.blit(
+                            pygame.transform.scale(pygame.image.load(os.path.join('assets', 
+                                str(TEST_LIST[cube][1][2])+'_left.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 
+                                Z_COORDINATES[str(i-1)+str(j-1)+str(1)])                               
 
     pygame.display.update()
-'''
-def main():
-
-    run = True
-    while run:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-        
-        draw(TEST_LIST)
-
-    pygame.quit()
-
-if __name__ == "__main__":
-    main()
-'''
