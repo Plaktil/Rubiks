@@ -20,15 +20,17 @@ if __name__ == "__main__":
     print(instructions)
 
     startPos = input("Enter 'S' to shuffle or 'C' to continue: ")
-
+    shuffleSequence = ""
     if startPos == "S":
-        rubiks_cube.shuffle()
+        shuffleSequence = rubiks_cube.shuffle()
 
     run = True
     while run:
 
         # Temporary representation
         # rubiks_cube._draw()
+        
+        print(str(shuffleSequence) + "\n")
 
         """
         gui.draw takes a list of every cube's coordinates and colors tuples.
