@@ -1,5 +1,5 @@
 import cube
-#import gui
+import gui
 
 if __name__ == "__main__":
 
@@ -28,13 +28,13 @@ if __name__ == "__main__":
     while run:
 
         # Temporary representation
-        rubiks_cube._draw()
+        # rubiks_cube._draw()
 
         """
         gui.draw takes a list of every cube's coordinates and colors tuples.
         Comment the temp. representation and uncomment the following line once gui.draw is completed.
         """
-        #gui.draw(rubiks_cube.getCube())
+        gui.draw(rubiks_cube.getCube())
 
         move_sequence = input("Next move(s): ")
         print("\n")

@@ -111,7 +111,6 @@ class Cube:
 
 				print(b.pos, b.colors)
 				"""
-				b.pos = np.matmul(b.pos, rotation_mat)
 				b.colors = np.matmul(b.colors, rotation_mat)
 				"""
 				of the rotations
