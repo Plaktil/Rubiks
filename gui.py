@@ -107,7 +107,7 @@ def take_input():
     print(moves_list)
 """
 
-def draw_window():
+def draw_window(): 
     WIN.blit(BACKGROUND_RESIZED, (0,0))
     #WIN.blit(CUBE_FRAME_RESIZED, (0,-50))
     #WIN.blit(CUBE_FRAME_RESIZED, (0,BACK_SHIFT))
