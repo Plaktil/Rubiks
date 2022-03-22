@@ -100,7 +100,6 @@ def draw(TEST_LIST):
                                 Z_COORDINATES[str(i-1)+str(j-1)+str(-1)])
                 if TEST_LIST[cube][0][2] == 1:
                     if TEST_LIST[cube][1][2] != 0:
-                        print("yo")
                         WIN.blit(
                             pygame.transform.scale(pygame.image.load(os.path.join('assets', 
                                 str(TEST_LIST[cube][1][2])+'_left.png')), (SIDE_FACE_WIDTH, SIDE_FACE_HEIGHT)), 

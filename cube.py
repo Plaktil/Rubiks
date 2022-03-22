@@ -158,7 +158,7 @@ class Block():
 			self.colors[1] = 6
 		if z == -max_coord:
 			self.colors[2] = -3
-		if z == max_coord- 1:
+		if z == max_coord:
 			self.colors[2] = 4
 
 	def _draw(self):
